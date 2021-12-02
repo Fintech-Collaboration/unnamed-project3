@@ -10,7 +10,7 @@
   <h3 align="center">VIXCOIN</h3>
 
   <p align="center">
-    VIXCOIN the best way to invest in volatility!
+   VIXCOIN is the 1st DeFi/CeFI company that provides a solution to invest long-term in volatility!  
     <br />
     <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp"><strong>Explore the docs »</strong></a>
     <br />
@@ -53,13 +53,22 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+VIXCOIN is a defi/cefi solutions company that has created a way to invest long-term in volatility using a digital token which is VIXCOIN 
+Our first product utilizes VIXM as the financial investment vehicle but there are plans to expand to others. 
 
-VIXCOIN is the 1st DeFi/CeFI company that provides a solution to invest long-term in volatility!  
-We created the VIXCOIN token on the Etherum blockchain annd it links digital assets with traditional investments. 
-The token offers a way to diversify an investors' portfolio during market downturns. 
-Also, the token does not rely on supply and demand. VIXCOIN derives its value from the performance of our algorithmic trading strategy. 
-Thus if our strategy is performing well, then our token value will be higher. 
-Our company provides a product (VIXCOIN) and a service which is the trading strategy. 
+How it works:
+Users can purchase a token on our website that acts like security on a long-term volatility instrument. 
+Using our algorithmic trading strategy when there are buy and sell signals, we take our users cash and invest it in VIXM. 
+Our company provides both a product (VIXCOIN) and a service which is the trading strategy. 
+
+* The VIXCOIN token is ERC20 (fungible) and was created utilizing the Etherum blockchain 
+* The token links digital assets with traditional investments. 
+* Offers a way to diversify an investors' portfolio during market downturns.
+* Opens up investment opportunities to global investors since it was traditional only available to those in the US. 
+* Token does not rely on supply and demand. It derives value from the performance of our algorithmic trading strategy. 
+
+
+DISCLAIMER: Our product is only deployed to a testnet and our user interface can only be launched locally. Investment in our product is not an option yet. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -108,26 +117,27 @@ Alternatively, you can jump straight to the demo section and test out the wesbit
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+There are multiple components to our dApp: 
+1. ML/AL trading strategy 
+2. smart contract
+3. web3.py
+4. Django UI
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Please refer to installation section for how to run the trading strategy. 
+For the UI, please see the next section below. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Demo
-1. To 
-   ```sh
-   git clone https://github.com/Fintech-Collaboration/vixx-token-dapp.git
+1. To launch the user interface, make sure that you have installed Django for python.
+2. In the terminal, navigate to the vixx-trader file from the cloned repo.
+3. Start the Django app, enter the info below: 
+  ```sh
+    python manage.py startapp <vixx_trader>
    ```
-2.
-3.
-4.
-5.
-6.
-7.
+4. If launched, properly, you should see the image below
 <div align="center">
-    <img src="images/portfolio_frontpage.png" alt="Logo" width="900" height="400">
+    <img src="images/portfolio_frontpage.png" alt="Logo" width="800" height="450">
   </a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -138,9 +148,21 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     <img src="images/token_valuation.png" alt="Logo" width="900" height="400">
   </a>
 
+The price of the VixCoin token is linked to the performance of the investment strategy.
+Here is a comparison of the performance of the VIXCOIN token and the SP500 out-of-sample.  
+As you can see: If you would have invested $1 in Oct 2019, by the end of 2021 the value of your coin would be $2.50, which is a 150% return, above the 60% of the S&P500. 
+
+In our smart contract, we utilize the following formula in order to set the price of the token. 
+TP_t = TP_y  * (1+r*s)
+ Where s is the signal predicted for the day
+   r is the daily VIXM return
+token_price_today = token price yesterday*(1+vixm_return_yesterday*signal_hat_yesterday)
+
+In order to get VIXM data, we utilize Chainlink to call price feeds into the contract. 
+
+NOTE: Current contract that is connected to Django does not utilize the formula above. It is a work in progress. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 ## License
