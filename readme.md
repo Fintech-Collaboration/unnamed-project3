@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/vixcoin_logo.png" alt="Logo" width="170" height="90">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="200" height="90">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -149,7 +149,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 Distributed under the MIT License.
 See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="left">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -176,7 +176,7 @@ Jasmine Tengsico - (https://www.linkedin.com/in/jasmine-tengsico-5030b0167/)
 
 Project Link: [https://github.com/jtengsico](https://github.com/jtengsico)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="left">(<a href="#top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
