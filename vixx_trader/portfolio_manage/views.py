@@ -1,4 +1,4 @@
-# WEB3 IMPORTS
+# NORMAL IMPORTS
 import os
 import json
 import requests
@@ -17,7 +17,6 @@ from django.shortcuts          import render, redirect
 from django.conf               import settings
 from django.http               import HttpResponse
 
-
 from .models import Portfolio
 
 from .forms  import (
@@ -26,9 +25,15 @@ from .forms  import (
     TransactionCreateForm,
 )
 
-from .utils.web3utils import web3backend
+from .utils.web3utils        import web3backend
+from .utils.vxcn_performance import parse_vxcn_performance
+from .utils.etherscan        import getLastEtherPriceUrl
 
-WEB3BACKEND = web3backend()
+
+WEB3BACKEND          = web3backend()
+VXCN_PERFORMANCE     = parse_vxcn_performance()
+LAST_ETHER_PRICE_URL = getLastEtherPriceUrl()
+LAST_VXCN_PRICE      = str(VXCN_PERFORMANCE["Token Price"].iloc[-1])
 
 
 def home(request):    
@@ -45,9 +50,10 @@ def home(request):
         "balance":        this_portfolio.balance,
         "nickname":       "//s".join(this_portfolio.nickname.split(" ")),
         "public_address": this_portfolio.address,
-        "coin_cost":      1.4,
+        "coin_cost":      LAST_VXCN_PRICE,
         "plot_growth":    plot_growth,
-        "plot_returns":    plot_returns,
+        "plot_returns":   plot_returns,
+        "ether_price":    LAST_ETHER_PRICE_URL,
         **transactions,
     }
 
@@ -60,7 +66,8 @@ def about(request):
 
 
 def portfolio(request):
-    public_address = request.COOKIES["publicAddress"].lower()
+    public_address   = request.COOKIES["publicAddress"].lower()
+    contract_address = WEB3BACKEND["contract_address"]
 
     if request.method == "GET" and Portfolio.objects.filter(address=public_address).count() == 0:
         # Create new account
@@ -72,19 +79,34 @@ def portfolio(request):
             coin_count=0.0,
         )
         new_portfolio.save()
+    elif request.method == "POST":
+        print(LAST_ETHER_PRICE_URL)
+        print(LAST_VXCN_PRICE)
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, '
+                                    'like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+
+        response   = requests.get(LAST_ETHER_PRICE_URL, headers=headers)
+        response   = json.loads(response.content)
+        ether_rate = response["result"]["ethusd"] 
+        # breakpoint()
+        # WEB3BACKEND["vxcn_token_crowdsale_contract"].functions.balanceOf(WEB3BACKEND["account"], {})
         
     response       = get_etherscan_response(public_address) if public_address != "0x00..." else {"result": {}}
     df_response    = pd.DataFrame.from_dict(response["result"])
     transactions   = meta_transaction_list(df_response) if not df_response.empty else {}
     this_portfolio = Portfolio.objects.get(address=public_address)
 
+    print(contract_address)
+    # breakpoint()
+
     context = {
         "user":             this_portfolio.user,
         "balance":          this_portfolio.balance,
         "nickname":         "//s".join(this_portfolio.nickname.split(" ")),
         "public_address":   this_portfolio.address,
-        "contract_address": WEB3BACKEND["contract_address"],
-        "coin_cost":        1.4,
+        "contract_address": contract_address,
+        "coin_cost":        LAST_VXCN_PRICE,
+        "ether_price":      LAST_ETHER_PRICE_URL,
         **transactions,
     }
 
@@ -124,7 +146,8 @@ def my_page(request):
         "nickname":         this_portfolio.nickname,
         "public_address":   this_portfolio.address,
         "contract_address": request.COOKIES["crowdsaleContractAddress"],
-        "coin_cost":        1.4,
+        "coin_cost":        LAST_VXCN_PRICE,
+        "ether_price":      LAST_ETHER_PRICE_URL,
         **transactions,
     }
 
@@ -140,6 +163,33 @@ def plot_performance():
         parse_dates=True,
         infer_datetime_format=True
     )
+
+    # breakpoint()
+
+    customdata = np.stack((
+        df['ML Signal'],    #0
+
+        df['VIXM Close'],   #1
+        df['SPY Close'],    #2
+
+        df['VIXM Growth'],  #3
+        df['SPY Growth'],   #4
+        df['VXCN Growth'],  #5
+
+        df['Token Price'],  #6
+    ), axis=-1)
+
+    hovertemplate = """
+    <b>%{x}<br>
+    ML Signal:    %{customdata[0]:,.0f}</b><br><br>
+    VIXM Close:   $%{customdata[1]:,.4f}<br>
+    SPY Close:    $%{customdata[2]:,.4f}<br>
+    VIXM Growt:   %{customdata[3]:,.6f}<br>
+    SPY Growth:   %{customdata[4]:,.6f}<br>
+    VXCN Growth:  %{customdata[5]:,.6f}<br>
+    Token Price:  %{customdata[6]:,.4f}
+    <extra></extra>
+    """
 
     x_data = df.index
 
@@ -164,8 +214,8 @@ def plot_performance():
         name="VIXM",
         opacity=0.8,
         marker_color='green',
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendrank=1,
         # showlegend=False,
     )
@@ -180,8 +230,8 @@ def plot_performance():
         marker_symbol="triangle-up",
         marker_size=8,
         visible="legendonly",
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendrank=1,
         # showlegend=False,
     )
@@ -193,8 +243,8 @@ def plot_performance():
         name="SPY",
         opacity=0.8,
         marker_color='red',
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendrank=1,
         # showlegend=False,
     )
@@ -206,8 +256,8 @@ def plot_performance():
         name="VIXCOIN",
         opacity=0.8,
         marker_color='blue',
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendgroup="sma-lines",
         # legendgrouptitle_text="Simple Moving Avgs",
         # legendrank=2,
@@ -221,8 +271,8 @@ def plot_performance():
         name="VIXM",
         opacity=0.8,
         marker_color='green',
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendrank=1,
         # showlegend=False,
     )
@@ -234,8 +284,8 @@ def plot_performance():
         name="SPY",
         opacity=0.8,
         marker_color='red',
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendrank=1,
         # showlegend=False,
     )
@@ -247,19 +297,19 @@ def plot_performance():
         name="VXCN",
         opacity=0.8,
         marker_color='blue',
-        # customdata=customdata,
-        # hovertemplate=hovertemplate,
+        customdata=customdata,
+        hovertemplate=hovertemplate,
         # legendrank=1,
         # showlegend=False,
     )
 
     plt_growth = plot(
-        [trace_vxcn_growth, trace_vixm_growth, trace_spy_growth, trace_signal_growth],
+        [trace_vxcn_growth, trace_vixm_growth, trace_signal_growth],
         output_type="div",
     )
 
     plt_returns = plot(
-        [trace_vxcn_returns, trace_vixm_returns, trace_spy_returns],
+        [trace_vxcn_returns, trace_vixm_returns],
         output_type="div",
     )
 
@@ -281,7 +331,6 @@ def get_etherscan_response(public_address):
 
     response = requests.get(url, headers=headers)
     response = json.loads(response.content)
-    print("-------------- in etherscan getter")
 
     return response
 

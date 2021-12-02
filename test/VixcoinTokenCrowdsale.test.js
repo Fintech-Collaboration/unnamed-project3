@@ -1,14 +1,17 @@
-const BigNumber = web3.BigNumber;
+import ether from "./helpers/ethers";
+
+const Web3 = require("web3");
+const BN = web3.utils.BN;
 const VixcoinToken = artifacts.require("VixcoinToken");
 const VixcoinTokenCrowdsale = artifacts.require("VixcoinTokenCrowdsale");
 
 var chai = require("chai");
-
-chai.use(require("chai-bignumber")(BigNumber));
+chai.use(require('chai-as-promised'));
+chai.use(require("chai-bn")(BN));
 chai.should();
 
 
-contract("VixcoinTokenCrowdsale", function([_, wallet]) {
+contract("VixcoinTokenCrowdsale", function([_, wallet, investor1, investor2]) {
     
     beforeEach(async function () {
         // Token config
@@ -24,7 +27,7 @@ contract("VixcoinTokenCrowdsale", function([_, wallet]) {
         );
 
         // Crowdsale config
-        this.rate = 500;
+        this.rate = new BN(500);
         this.wallet = wallet;
 
         // Deploy Token
@@ -34,6 +37,8 @@ contract("VixcoinTokenCrowdsale", function([_, wallet]) {
             this.token.address
         );
 
+        // Transfer token ownership to crowdsale
+        // await this.token.transferOwnership(this.crowdsale.address)
     });
 
     describe("crowdsale attributes", function () {
@@ -44,7 +49,7 @@ contract("VixcoinTokenCrowdsale", function([_, wallet]) {
 
         it("tracks the rate", async function () {
             const rate = await this.crowdsale.rate();
-            rate.toNumber().should.be.bignumber.equal(this.rate);
+            rate.should.be.bignumber.equal(this.rate);
         });
 
         it("tracks the token", async function () {
@@ -52,5 +57,22 @@ contract("VixcoinTokenCrowdsale", function([_, wallet]) {
             token.should.equal(this.token.address);
         });
     });
+
+    
+    const calcWeiRaised = async (crowdsale) => {
+        const weiRaised = await crowdsale.weiRaised();
+        console.log(weiRaised);
+    }
+
+    calcWeiRaised(this.crowdsale);
+
+    // describe("accepting payments", function() {
+    //     it("should accept payments", async function() {
+    //         const tokenAmount = ether("1");
+    //         const beneficiary = "0x9dBEC92545Fdf0f07aCC9773DA8Ff9B53f8393C5";
+
+    //         // await this.crowdsale.buyTokens(investor1, { value: value, from: purchaser }).should.be.fulfilled;
+    //     });
+    // });
 
 })

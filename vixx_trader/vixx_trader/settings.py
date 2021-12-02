@@ -18,7 +18,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 BASE_DIR = Path(__file__).resolve().parent.parent
-ABI_DIR  = lambda app: os.path.join(BASE_DIR, app, "contracts\\compiled\\abi.json")
+ABI_DIR  = lambda app, fn: os.path.join(BASE_DIR, app, f"static\\abi\\{fn}")
 
 
 # Load environment variables.
@@ -97,6 +97,8 @@ WALLET = {
     'PRIMARY_PRIVATE_KEY':   env('PRIMARY_PRIVATE_KEY'),
     'SECONDARY_PUBLIC_KEY':  env('SECONDARY_PUBLIC_KEY'),
     'SECONDARY_PRIVATE_KEY': env('SECONDARY_PRIVATE_KEY'),
+    'VIXCOIN_OWNER_PUBLIC_KEY':  env('VIXCOIN_OWNER_PUBLIC_KEY'),
+    'VIXCOIN_OWNER_PRIVATE_KEY': env('VIXCOIN_OWNER_PRIVATE_KEY'),
     'HARDHAT_1_PUBLIC_KEY':  env('HARDHAT_1_PUBLIC_KEY'),
     'HARDHAT_1_PRIVATE_KEY': env('HARDHAT_1_PRIVATE_KEY'),
     'HARDHAT_2_PUBLIC_KEY':  env('HARDHAT_2_PUBLIC_KEY'),
@@ -108,8 +110,9 @@ WALLET = {
 }
 
 CONTRACT = {
-    'ALCHEMY_URL_KEY': env('ALCHEMY_URL_KEY'),
+    'ALCHEMY_URL_KEY':        env('ALCHEMY_URL_KEY'),
     'SMART_CONTRACT_ADDRESS': env('SMART_CONTRACT_ADDRESS'),
+    'WEB3_INFURA_PROJECT_ID': env('WEB3_INFURA_PROJECT_ID'),
 }
 
 ETHERSCAN = {

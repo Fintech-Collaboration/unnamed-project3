@@ -6,11 +6,12 @@
         <title>VIXCOIN</title>
 
         <meta name="nickname" content={{ nickname }} />
-        <meta name="nickname" content={{ user }} />
+        <meta name="user" content={{ user }} />
         <meta name="public_address" content={{ public_address }} />
         <meta name="balance" content={{ balance }} />
         <meta name="contract_address" content={{ contract_address }} />
         <meta name="coin_cost" content={{ coin_cost }} />
+        <meta name="ether_price" content={{ ether_price }} />
   
         <meta name="tx_hash" content={{ tx_hash }} />
         <meta name="tx_contractAddress" content={{ tx_contractAddress }} />
@@ -20,6 +21,7 @@
         <meta name="tx_gasUsed" content={{ tx_gasUsed }} />
         <meta name="tx_date" content={{ tx_date }} />
         <meta name="tx_time" content={{ tx_time }} />
+        <script src="{% static '/js/utils.js' %}"></script>
         
         <!-- Load React. -->
         <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -29,8 +31,6 @@
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
-        <script src="{% static '/js/utils.js' %}"></script>
 
         <script src="{% static '/abi/VixcoinToken.json' %}"></script>
         <script src="{% static '/abi/VixcoinTokenCrowdsale.json' %}"></script>

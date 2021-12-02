@@ -20,56 +20,44 @@ const App = () => {
 
   const setContractValues = async () => {
     const { ethereum } = window;
-    if (!ethereum.selectedAddress) { return }
+    if (ethereum.selectedAddress) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
 
-    const provider = new ethers.providers.Web3Provider(ethereum);
-    const signer = provider.getSigner();
-    const rateDisplay = document.getElementById("current-market-value")
+      const vxcnTokenContract = new ethers.Contract(
+        VixcoinToken._contractAddress,
+        VixcoinToken.abi,
+        signer
+      );
 
-    const vxcnTokenContract = new ethers.Contract(
-      VixcoinToken._contractAddress,
-      VixcoinToken.abi,
-      signer
-    );
+      const vxcnTokenCrowdsaleContract = new ethers.Contract(
+        VixcoinTokenCrowdsale._contractAddress,
+        VixcoinTokenCrowdsale.abi,
+        signer
+      );
+      
+      console.log("vxcnTokenContract: ", vxcnTokenContract);
+      console.log("vxcnTokenCrowdsaleContract: ", vxcnTokenCrowdsaleContract);
+      
+      const accounts    = await ethereum.request({ method: "eth_requestAccounts" });
+      const name        = await vxcnTokenContract.name();
+      const symbol      = await vxcnTokenContract.symbol();
+      const totalSupply = await vxcnTokenContract.totalSupply();
+      const balance     = await vxcnTokenContract.balanceOf(ethereum.selectedAddress);
 
-    const vxcnTokenCrowdsaleContract = new ethers.Contract(
-      VixcoinTokenCrowdsale._contractAddress,
-      VixcoinTokenCrowdsale.abi,
-      signer
-    );
+      setCookie("tokenName", name, 364);
+      setCookie("tokenSymbol", symbol, 364);
+      setCookie("tokenBalance", hex2int(balance), 364);
+      setCookie("tokenContractAddress", VixcoinToken._contractAddress, 364);
+      setCookie("crowdsaleContractAddress", VixcoinTokenCrowdsale._contractAddress, 364);
+    }
+    else {
+      setCookie("tokenName", "", 364);
+      setCookie("tokenBalance", hex2int(0.00), 364);
+    }
 
-    const vxcnTokenCrowdsaleDeployerContract = new ethers.Contract(
-      VixcoinTokenCrowdsaleDeployer._contractAddress,
-      VixcoinTokenCrowdsaleDeployer.abi,
-      signer
-    );
+    getWalletStatus();
 
-    console.log(signer);
-    console.log(ethers);
-    console.log("vxcnTokenContract: ", vxcnTokenContract);
-    console.log("vxcnTokenCrowdsaleContract: ", vxcnTokenCrowdsaleContract);
-    console.log("vxcnTokenCrowdsaleDeployerContract: ", vxcnTokenCrowdsaleDeployerContract);
-    
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    console.log("here i am")
-    const name   = await vxcnTokenContract.name();
-    const symbol = await vxcnTokenContract.symbol();
-    const rate   = await vxcnTokenCrowdsaleContract.rate();
-    // const balance = await vxcnTokenContract.balanceOf(VixcoinToken._contractAddress);
-    // const isMinter = await vxcnTokenContract.isMinter(accounts[0]);
-    rateDisplay.textContent = `VXCN Current Exchange Rate: ${parseInt(Number(rate), 10)} wei`
-
-    // await vxcnTokenContract.mint(accounts[0], 1010)
-
-    // console.log(balance);
-    // console.log(accounts[0])
-    // console.log(isMinter);
-
-    setCookie("tokenName", name, 364);
-    setCookie("tokenSymbol", symbol, 364);
-    setCookie("tokenRate", rate, 364);
-    setCookie("tokenContractAddress", VixcoinToken._contractAddress, 364);
-    setCookie("crowdsaleContractAddress", VixcoinTokenCrowdsale._contractAddress, 364);
   }
 
   const setPortfolioValues = (_account, _balance, _opts) => {
@@ -87,7 +75,7 @@ const App = () => {
       anchorAddress.href = _account.href;
     }
 
-    ethBalance.textContent = `${_balance}`;
+    ethBalance.textContent = getCookie("tokenBalance");
   }
 
   const setWalletValues = (_account, _opts) => {   
@@ -108,6 +96,9 @@ const App = () => {
 
   const setTransactionTable = (_account) => {
     let transactionTable = document.getElementById("table-transaction-list");
+
+    console.log("Printing table now for : ", contract_address);
+    console.log("and for... : ", tx_contractAddress);
 
     try {
         console.log(transactionTable.name);
@@ -136,7 +127,7 @@ const App = () => {
       setTableHeader(tr, "Contract");
       setTableHeader(tr, "From");
       setTableHeader(tr, "To");
-      setTableHeader(tr, "Amount (wei)");
+      setTableHeader(tr, "Amount");
 
       for(let i = 0; i < tx_from.length; i++){
         sameAccount  = (tx_to[i] === _account || tx_from[i] === _account);
@@ -151,7 +142,7 @@ const App = () => {
           setTableData(tr, subAddress(tx_contractAddress[i], "address"));
           setTableData(tr, subAddress(tx_from[i], "address"));
           setTableData(tr, subAddress(tx_to[i], "address"));
-          setTableData(tr, tx_value[i]);
+          setTableData(tr, parseInt(tx_value[i])/1000000000);
         }
       }
 
@@ -171,26 +162,13 @@ const App = () => {
       const accounts   = await ethereum.request({ method: "eth_requestAccounts" });
       const weiBalance = await eth.getBalance(accounts[0]);
       const ethBalance = Eth.fromWei(weiBalance, 'ether');
-      
-      let block = await eth.getBlockByNumber("28575746", true);
-      let number = block.number;
-      let transactions = block.transactions;
-
-      if (block != null && block.transactions != null) {
-        for (let txHash of block.transactions) {
-          let tx = await eth.getTransactionByHash(txHash.hash);
-          if (accounts[0] == tx.from.toLowerCase()) {
-            // console.log("from: " + tx.from.toLowerCase() + " to: " + tx.to.toLowerCase() + " value: " + tx.value);
-          }
-        }
-      }
 
       if (currentAccount) {
         return;
       }
 
       // If new account sign on...
-      if (accounts.length !== 0 && accounts[0] !== currentAccount) {
+      if (accounts.length !== 0) {
         const account = {
           address: accounts[0],
           href:    subAddress(accounts[0], "address"),
@@ -204,11 +182,11 @@ const App = () => {
         account.anchor.target      = account.target;
         account.anchor.name        = account.name;
         account.anchor.textContent = account.abbrv;
-
-        setCurrentAccount(account.address);
-        setPortfolioValues(account, ethBalance);
-        setWalletValues(account);
+        
         setTransactionTable(account.address);
+        setCurrentAccount(account.address);
+        setWalletValues(account);
+        setPortfolioValues(account, ethBalance);
       }
     }
     catch (error) {
@@ -270,8 +248,8 @@ const App = () => {
         const newUrl = `http://localhost:8000/portfolio/?id=${noAccountAddress}`;
        
         setCurrentAccount(null);
-        setPortfolioValues(" ", 0.00, {"href": ""});
         setWalletValues(noAccountAddress, {"value": null});
+        setPortfolioValues(" ", 0.00, {"href": ""});
         setTransactionTable(null);        
         setCookie("publicAddress", noAccountAddress, 364)
         setCookie("ethBalance", "0", 364)
@@ -287,10 +265,9 @@ const App = () => {
     }
   }
 
-  ethereum.on('accountsChanged', getWalletStatus);
-  ethereum.on('chainChanged', getWalletStatus);
+  ethereum.on('accountsChanged', setContractValues);
+  ethereum.on('chainChanged', setContractValues);
   setContractValues();
-  getWalletStatus();
   
   if (!currentAccount) {
     return (

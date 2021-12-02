@@ -1,6 +1,6 @@
 const nickname = document.getElementsByName('nickname')[0].content.replaceAll("//s", " ");
 const public_address = document.getElementsByName('public_address')[0].content;
-const balance = parseFloat(document.getElementsByName('balance')[0].content).toFixed(2);
+const balance = parseFloat(document.getElementsByName('balance')[0].content).toFixed(2) / 10^9;
 
 const App = () => {
     function getPortfolioTable() {
@@ -11,7 +11,7 @@ const App = () => {
                         <tr>
                             <th>Nickname</th>
                             <th>Address</th>
-                            <th>ETH Balance</th>
+                            <th>VXCN Balance</th>
                         </tr>
                     </thead>
                     <tbody>
