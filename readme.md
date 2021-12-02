@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/vixcoin_logo.png" alt="Logo" width="100" height="90">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="150" height="90">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -137,7 +137,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- Token Value -->
 ## Token Valuation
 <div align="center">
-    <img src="images/token_valuation.png" alt="Logo" width="120" height="200">
+    <img src="images/token_valuation.png" alt="Logo" width="500" height="500">
   </a>
 
 
