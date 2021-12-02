@@ -54,8 +54,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 VIXCOIN is the 1st DeFi/CeFI company that provides a solution to invest long-term in volatility!  
 We created the VIXCOIN token on the Etherum blockchain annd it links digital assets with traditional investments. 
 The token offers a way to diversify an investors' portfolio during market downturns. 
