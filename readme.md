@@ -44,8 +44,7 @@
      <ul>
         <li><a href="#demo">Demo</a></li>
       </ul>
-     </li>
-    <li>
+     <li>
     <li><a href="#token-valuation">Token Valuation</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -66,22 +65,23 @@ Our company provides a product (VIXCOIN) and a service which is the trading stra
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+The dApp was built utilizing at least python 3.7 for the back end data analysis and machine learning for the algorithmic trading strategy.
 
 Python Packages
-* [Pandas](https://nextjs.org/)
-* [Numpy](https://reactjs.org/)
-* [Pathlib](https://vuejs.org/)
-* [Datetime](https://angular.io/)
-* [yfinance](https://svelte.dev/)
-* [Sklearn](https://laravel.com)
-* [Hvplot](https://getbootstrap.com)
-* [Matplotlib](https://jquery.com)
+* [Pandas](https://pandas.pydata.org/)
+* [Numpy](https://numpy.org/)
+* [Datetime](https://pypi.org/project/DateTime/)
+* [yfinance](https://pypi.org/project/yfinance/)
+* [Sci-kit learn](https://scikit-learn.org/stable/)
+* [Hvplot](https://hvplot.holoviz.org/)
+* [Matplotlib](https://matplotlib.org/)
 
 User Interface
-* [Django](https://jquery.com)
-* 
+* [Django](https://www.djangoproject.com/)
+
+Wallet Integration
+* [Metamask](https://metamask.io/)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -96,24 +96,11 @@ Alternatively, you can jump straight to the demo section and test out the wesbit
    git clone https://github.com/Fintech-Collaboration/vixx-token-dapp.git
    ```
 2. Install python packages listed in the Built With section. 
-3. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-4. Get a free API Key at [https://example.com](https://example.com)
-5. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-6. Install NPM packages
-   ```sh
-   npm install
-   ```
-7. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+3. To test out the algorithmic trading strategy file, first go to your terminal. 
+4. In your terminal, navigate to the location where the cloned repo resides.
+5. Locate 
+6. Clone the repo
+ 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -145,7 +132,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## License
 <div align="left">
 Distributed under the MIT License.
-See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
+*[MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -155,23 +142,18 @@ See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 ## Contact
 <div align="left">
 Jason Garcia -(https://www.linkedin.com/in/24-jason-j-garcia/) 
-
 Project Link: [https://github.com/jasonjgarcia24](https://github.com/jasonjgarcia24)
 
 Prateek Sharma - (https://www.linkedin.com/in/prateek-sharma-21a081180/) 
-
 Project Link: [https://github.com/puru444](https://github.com/puru444)
 
 Paola Carvajal- (https://www.linkedin.com/in/paolacarvajal/)
-
 Project Link: [https://github.com/paocarvajal1912](https://github.com/paocarvajal1912)
 
 Srini Goda - (https://www.linkedin.com/in/srini-goda-2305644/) 
-
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 Jasmine Tengsico - (https://www.linkedin.com/in/jasmine-tengsico-5030b0167/)
-
 Project Link: [https://github.com/jtengsico](https://github.com/jtengsico)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
