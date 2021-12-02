@@ -9,4 +9,4 @@ MNEMONIC=" < optional mnemonic for test network > "
 
 ETHERSCAN=" < etherscan api key >"
 
-WEB3_INFURA_PROJECT_ID="< web3 infura key here >"
+WEB3_INFURA_PROJECT_ID=" < web3 infura key here > "
