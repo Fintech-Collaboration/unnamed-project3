@@ -1,56 +1,39 @@
-//SDPX-License-Identifier: MIT
 pragma solidity ^0.5.0;
 
-import "./VixcoinToken.sol";
-import "@openzeppelin/contracts/crowdsale/emission/MintedCrowdsale.sol";
+import "./VixcoinTokenMintable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/emission/MintedCrowdsale.sol";
 
-
-contract VixcoinTokenCrowdsale is MintedCrowdsale {
-    constructor(
-        uint _rate,
-        address payable _wallet,
-        VixcoinToken _token
-    )
-    Crowdsale(_rate, _wallet, _token)
-    public {}
-}
-
-contract VixcoinTokenCrowdsaleDeployer {
-    address public vixcoin_token_address;
-    address public vixcoin_crowdsale_address;
-
-    constructor(
-        string memory _name,
-        string memory _symbol,
-        uint8 _decimals,
-        address payable _wallet
-    )
-    public
-    {
-        uint256 _rate = 25;
-
-        // Create the VixcoinToken and keep its address
-        VixcoinToken _token = new VixcoinToken(_name, _symbol, _decimals);
-        vixcoin_token_address = address(_token);
-        console.log("vixcoin_token_address: ", vixcoin_token_address);
-
-        // Create the VixcoinTokenCrowdsale and tell it about the token
-        VixcoinTokenCrowdsale vixcoin_crowdsale = new VixcoinTokenCrowdsale(_rate, _wallet, _token);
-        vixcoin_crowdsale_address = address(vixcoin_crowdsale);
-        console.log("vixcoin_crowdsale_address: ", vixcoin_crowdsale_address);
-
-        // Make the VixcoinTokenCrowdsale contract a minter,
-        // then have the VixcoinTokenCrowdsaleDeployer renounce its minter role.
-        _token.addMinter(vixcoin_crowdsale_address);
-        _token.renounceMinter();
-    }
-
-    function getVixcoinTokenAddress() public view returns(address) {
-        return vixcoin_token_address;
-    }
-
-    function getVixcoinCrowdsaleAddress() public view returns(address) {
-        return vixcoin_crowdsale_address;
+contract VixcoinTokenSale is Crowdsale, MintedCrowdsale {
+    
+    constructor (
+        uint rate,
+        address payable wallet,
+        VixcoinToken token
+    ) Crowdsale(rate, wallet, token) public {
+        
     }
 }
 
+contract VixcoinTokenSaleDeployer {
+    address public vixcoin_sale_address;
+    address public token_address;
+    
+    constructor (
+        uint rate,
+        string memory name,
+        string memory symbol,
+        uint8 decimals,
+        uint initial_supply,
+        address payable wallet
+    ) public {
+        VixcoinToken token = new VixcoinToken(name, symbol, decimals, initial_supply);
+        token_address = address(token);
+        
+        VixcoinTokenSale vixcoin_sale = new VixcoinTokenSale(rate, wallet, token);
+        vixcoin_sale_address = address(vixcoin_sale);
+        
+        token.addMinter(vixcoin_sale_address);
+        token.renounceMinter();
+    }
+}
