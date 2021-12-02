@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/vixcoin_logo.png" alt="Logo" width="80" height="80">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="100" height="90">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -56,17 +56,12 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
+VIXCOIN is the 1st DeFi/CeFI company that provides a solution to invest long-term in volatility!  
+We created the VIXCOIN token on the Etherum blockchain annd it links digital assets with traditional investments. 
+The token offers a way to diversify an investors' portfolio during market downturns. 
+Also, the token does not rely on supply and demand. VIXCOIN derives its value from the performance of our algorithmic trading strategy. 
+Thus if our strategy is performing well, then our token value will be higher 
+Our company provides a product (VIXCOIN) and a service which is the trading strategy 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -141,8 +136,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- Token Value -->
 ## Token Valuation
-div align="center">
-    <img src="images/token_valuation.png" alt="Logo" width="80" height="80">
+<div align="center">
+    <img src="images/token_valuation.png" alt="Logo" width="120" height="200">
   </a>
 
 
