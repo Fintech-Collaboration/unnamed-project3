@@ -137,7 +137,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- Token Value -->
 ## Token Valuation
 <div align="center">
-    <img src="images/token_valuation.png" alt="Logo" width="500" height="500">
+    <img src="images/token_valuation.png" alt="Logo" width="800" height="600">
   </a>
 
 
