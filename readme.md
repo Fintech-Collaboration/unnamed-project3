@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/vixcoin_logo.png" alt="Logo" width="150" height="90">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="170" height="90">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -60,8 +60,8 @@ VIXCOIN is the 1st DeFi/CeFI company that provides a solution to invest long-ter
 We created the VIXCOIN token on the Etherum blockchain annd it links digital assets with traditional investments. 
 The token offers a way to diversify an investors' portfolio during market downturns. 
 Also, the token does not rely on supply and demand. VIXCOIN derives its value from the performance of our algorithmic trading strategy. 
-Thus if our strategy is performing well, then our token value will be higher 
-Our company provides a product (VIXCOIN) and a service which is the trading strategy 
+Thus if our strategy is performing well, then our token value will be higher. 
+Our company provides a product (VIXCOIN) and a service which is the trading strategy. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
