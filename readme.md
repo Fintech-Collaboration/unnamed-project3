@@ -75,14 +75,19 @@ Python Packages
 * [Hvplot](https://hvplot.holoviz.org/)
 * [Matplotlib](https://matplotlib.org/)
 
+Smart Contracts
+* [Solidity](https://docs.soliditylang.org/en/v0.8.10/)
+* [REMIX IDE](https://remix.ethereum.org)
+* [Chainlink](https://chain.link/)
+
 User Interface
 * [Django](https://www.djangoproject.com/)
+* [JSON](https://www.json.org/json-en.html)
 
 Wallet Integration
 * [Metamask](https://metamask.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -97,9 +102,9 @@ Alternatively, you can jump straight to the demo section and test out the wesbit
 2. Install python packages listed in the Built With section. 
 3. To test out the algorithmic trading strategy file, first go to your terminal. 
 4. In your terminal, navigate to the location where the cloned repo resides.
-5. Locate 
-6. Clone the repo
- 
+5. Locate vixm_adaboost_model.ipynb and launch the file in jupyter notebook for data visualizations. 
+6. Alternatively, if you would like to rerun the model, you may import the file into Google Colab. 
+7. Website functions are covered in the Demo portion. 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -115,6 +120,16 @@ _For more examples, please refer to the [Documentation](https://example.com)_
    ```sh
    git clone https://github.com/Fintech-Collaboration/vixx-token-dapp.git
    ```
+2.
+3.
+4.
+5.
+6.
+7.
+<div align="center">
+    <img src="images/portfolio_frontpage.png" alt="Logo" width="900" height="400">
+  </a>
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Token Value -->
