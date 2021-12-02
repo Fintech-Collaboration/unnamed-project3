@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/vixcoin_logo.png" alt="Logo" width="200" height="90">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="220" height="90">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -23,8 +23,6 @@
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -41,15 +39,19 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a></li>
+     <ul>
+        <li><a href="#demo">Demo</a></li>
+      </ul>
+     </li>
+    <li>
     <li><a href="#token-valuation">Token Valuation</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -63,63 +65,55 @@ Our company provides a product (VIXCOIN) and a service which is the trading stra
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+Python Packages
+* [Pandas](https://nextjs.org/)
+* [Numpy](https://reactjs.org/)
+* [Pathlib](https://vuejs.org/)
+* [Datetime](https://angular.io/)
+* [yfinance](https://svelte.dev/)
+* [Sklearn](https://laravel.com)
+* [Hvplot](https://getbootstrap.com)
+* [Matplotlib](https://jquery.com)
 
+User Interface
+* [Django](https://jquery.com)
+* 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
+To get a local copy up and running follow these steps below. 
+Alternatively, you can jump straight to the demo section and test out the wesbite portion. 
 
 ### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/Fintech-Collaboration/vixx-token-dapp.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
+2. Install python packages listed in the Built With section. 
+3. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
-5. Get a free API Key at [https://example.com](https://example.com)
-6. Clone the repo
+4. Get a free API Key at [https://example.com](https://example.com)
+5. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-7. Install NPM packages
+6. Install NPM packages
    ```sh
    npm install
    ```
-8. Enter your API in `config.js`
+7. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -130,7 +124,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
+### Demo
+1. To 
+   ```sh
+   git clone https://github.com/Fintech-Collaboration/vixx-token-dapp.git
+   ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Token Value -->
 ## Token Valuation
@@ -142,9 +141,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 <!-- LICENSE -->
 ## License
+<div align="left">
 Distributed under the MIT License.
 See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
@@ -154,6 +153,7 @@ See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
 <!-- CONTACT -->
 ## Contact
+<div align="left">
 Jason Garcia -(https://www.linkedin.com/in/24-jason-j-garcia/) 
 
 Project Link: [https://github.com/jasonjgarcia24](https://github.com/jasonjgarcia24)
@@ -166,7 +166,7 @@ Paola Carvajal- (https://www.linkedin.com/in/paolacarvajal/)
 
 Project Link: [https://github.com/paocarvajal1912](https://github.com/paocarvajal1912)
 
-Srini Goda - (https://twitter.com/your_username) 
+Srini Goda - (https://www.linkedin.com/in/srini-goda-2305644/) 
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
