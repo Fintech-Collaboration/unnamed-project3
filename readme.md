@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -101,7 +101,7 @@ To get a local copy up and running follow these simple example steps.
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Fintech-Collaboration/vixx-token-dapp.git
    ```
 3. Install NPM packages
    ```sh
@@ -111,6 +111,18 @@ To get a local copy up and running follow these simple example steps.
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
+5. Get a free API Key at [https://example.com](https://example.com)
+6. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+7. Install NPM packages
+   ```sh
+   npm install
+   ```
+8. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -128,17 +140,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- Token Value -->
-## Contributing
+## Token Valuation
+div align="center">
+    <img src="images/token_valuation.png" alt="Logo" width="80" height="80">
+  </a>
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -157,25 +163,25 @@ See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 <!-- CONTACT -->
 ## Contact
 
-Jason Garcia - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Jason Garcia -(https://www.linkedin.com/in/24-jason-j-garcia/) 
+
+Project Link: [https://github.com/jasonjgarcia24](https://github.com/jasonjgarcia24)
+
+Prateek Sharma - (https://www.linkedin.com/in/prateek-sharma-21a081180/) 
+
+Project Link: [https://github.com/puru444](https://github.com/puru444)
+
+Paola Carvajal- (https://www.linkedin.com/in/paolacarvajal/)
+
+Project Link: [https://github.com/paocarvajal1912](https://github.com/paocarvajal1912)
+
+Srini Goda - (https://twitter.com/your_username) 
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
-Prateek Sharma- [@your_twitter](https://twitter.com/your_username) - email@example.com
+Jasmine Tengsico - (https://www.linkedin.com/in/jasmine-tengsico-5030b0167/)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-Paola - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-Srini- [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-Jasmine Tengsico- [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/jtengsico](https://github.com/jtengsico)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
