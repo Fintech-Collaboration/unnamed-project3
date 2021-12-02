@@ -42,9 +42,8 @@
     <li>
       <a href="#usage">Usage</a></li>
      <ul>
-        <li><a href="#demo">Demo</a></li>
-      </ul>
-     <li>
+       <li><a href="#demo">Demo</a></li>
+    </ul>
     <li><a href="#token-valuation">Token Valuation</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -132,29 +131,32 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## License
 <div align="left">
 Distributed under the MIT License.
-*[MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
+https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
 <div align="left">
 Jason Garcia -(https://www.linkedin.com/in/24-jason-j-garcia/) 
-Project Link: [https://github.com/jasonjgarcia24](https://github.com/jasonjgarcia24)
+
+  Project Link: [https://github.com/jasonjgarcia24](https://github.com/jasonjgarcia24)
 
 Prateek Sharma - (https://www.linkedin.com/in/prateek-sharma-21a081180/) 
-Project Link: [https://github.com/puru444](https://github.com/puru444)
+
+  Project Link: [https://github.com/puru444](https://github.com/puru444)
 
 Paola Carvajal- (https://www.linkedin.com/in/paolacarvajal/)
-Project Link: [https://github.com/paocarvajal1912](https://github.com/paocarvajal1912)
+
+  Project Link: [https://github.com/paocarvajal1912](https://github.com/paocarvajal1912)
 
 Srini Goda - (https://www.linkedin.com/in/srini-goda-2305644/) 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+  Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 Jasmine Tengsico - (https://www.linkedin.com/in/jasmine-tengsico-5030b0167/)
-Project Link: [https://github.com/jtengsico](https://github.com/jtengsico)
+
+  Project Link: [https://github.com/jtengsico](https://github.com/jtengsico)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
