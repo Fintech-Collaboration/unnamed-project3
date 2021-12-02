@@ -1,0 +1,12 @@
+VIXCOIN_OWNER_PUBLIC_KEY=" < your public key here > "
+VIXCOIN_OWNER_PRIVATE_KEY=" < your private key here > "
+
+ALCHEMY_URL_KEY="https://eth-kovan.alchemyapi.io/v2/ < your alchemy api herer > "
+
+SMART_CONTRACT_ADDRESS=" < smart contract address here > "
+
+MNEMONIC=" < optional mnemonic for test network > "
+
+ETHERSCAN=" < etherscan api key >"
+
+WEB3_INFURA_PROJECT_ID="< web3 infura key here >"
