@@ -136,7 +136,7 @@ For the UI, please see the next section below.
     python manage.py startapp <vixx_trader>
    ```
 4. If launched, properly, you should see the image below
-<div align="center">
+<div align="left">
     <img src="images/portfolio_frontpage.png" alt="Logo" width="800" height="450">
   </a>
 
