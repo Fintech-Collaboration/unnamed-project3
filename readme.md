@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Fintech-Collaboration/vixx-token-dapp">
-    <img src="images/vixcoin_logo.png" alt="Logo" width="170" height="90">
+    <img src="images/vixcoin_logo.png" alt="Logo" width="200" height="90">
   </a>
 
   <h3 align="center">VIXCOIN</h3>
@@ -53,8 +53,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 VIXCOIN is the 1st DeFi/CeFI company that provides a solution to invest long-term in volatility!  
 We created the VIXCOIN token on the Etherum blockchain annd it links digital assets with traditional investments. 
@@ -147,7 +145,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- LICENSE -->
 ## License
-
 Distributed under the MIT License.
 See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
@@ -157,7 +154,6 @@ See [license txt](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)
 
 <!-- CONTACT -->
 ## Contact
-
 Jason Garcia -(https://www.linkedin.com/in/24-jason-j-garcia/) 
 
 Project Link: [https://github.com/jasonjgarcia24](https://github.com/jasonjgarcia24)
