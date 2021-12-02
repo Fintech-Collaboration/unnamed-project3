@@ -144,7 +144,7 @@ For the UI, please see the next section below.
 
 <!-- Token Value -->
 ## Token Valuation
-<div align="center">
+<div align="left">
     <img src="images/token_valuation.png" alt="Logo" width="900" height="400">
   </a>
 
